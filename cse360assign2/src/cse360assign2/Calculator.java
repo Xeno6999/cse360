@@ -18,13 +18,14 @@ public class Calculator
 {
 
 	private int total;
-	
+	private String history;
 	/*
 	 * Class constructor
 	 */
 	public Calculator () 
 	{
 		total = 0;  // not needed - included for clarity
+		history = "";
 	}
 	
 	/*
@@ -42,6 +43,12 @@ public class Calculator
 	 */
 	public void add (int value) 
 	{
+		if(history.length() == 0)
+		{
+			history += Integer.toString(total);		
+		}
+		history += " + ";
+		history += Integer.toString(value);
 		total += value;
 	}
 	
@@ -52,6 +59,12 @@ public class Calculator
 	 */
 	public void subtract (int value) 
 	{
+		if(history.length() == 0)
+		{
+			history += Integer.toString(total);		
+		}
+		history += " - ";
+		history += Integer.toString(value);
 		total -= value;
 	}
 	
@@ -62,6 +75,12 @@ public class Calculator
 	 */
 	public void multiply (int value) 
 	{
+		if(history.length() == 0)
+		{
+			history += Integer.toString(total);		
+		}
+		history += " * ";
+		history += Integer.toString(value);
 		total *= value;
 	}
 	
@@ -73,6 +92,13 @@ public class Calculator
 	 */
 	public void divide (int value) 
 	{
+		if(history.length() == 0)
+		{
+			history += Integer.toString(total);		
+		}
+		history += " / ";
+		history += Integer.toString(value);
+		
 		if(value == 0)
 		{
 			total = 0;
@@ -88,6 +114,6 @@ public class Calculator
 	 */
 	public String getHistory () 
 	{
-		return "";
+		return history;
 	}
 }
